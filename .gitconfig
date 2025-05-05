@@ -1,0 +1,47 @@
+# Alias de Git personalizados
+[alias]
+    # Alias general
+    alias = config --get-regexp ^alias         # Ver todos los alias configurados en Git
+
+    # Repositorio
+    s = status -sb                              # Estado abreviado del repositorio
+    history = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative   # Historial con gráfico y detalles
+
+    # Ramas
+    create = checkout -b                        # Crear y cambiar a una nueva rama
+    switch = checkout                           # Cambiar de rama
+    go = checkout                               # Atajo alternativo para cambiar de rama
+    rename = branch -m                          # Renombrar la rama actual
+    delete = branch -d                          # Eliminar una rama local
+    delete-force = branch -D                    # Forzar eliminación de una rama local
+    branches = branch -a                        # Listar ramas locales y remotas
+
+    # Stage y Unstage
+    stage-all = add .                           # Agregar todos los archivos al área de staging
+    unstage = restore --staged                  # Quitar archivo del área de staging
+    unstage-all = restore --staged .            # Quitar todos los archivos del área de staging
+
+    # Commits
+    undo = reset --soft HEAD^                   # Deshacer el último commit manteniendo los cambios
+    revert-last = revert HEAD                   # Revertir el último commit con un nuevo commit
+    save = commit -m                            # Crear commit con mensaje
+    last = log -1 --pretty=format:'%C(blue)%h%Creset - %s %C(green)(%cr) %C(bold blue)<%an>%Creset'   # Mostrar el último commit
+    amend = commit --amend --no-edit            # Agregar cambios al último commit sin cambiar el mensaje
+    amend-message = commit --amend -m           # Cambiar el mensaje del último commit
+
+    # Stash
+    stash-save = stash push -m                  # Guardar cambios en stash con mensaje
+    stash-list = stash list                     # Lista de stashes
+    stash-pop = stash pop                       # Aplicar y eliminar el último stash
+    stash-wip = stash push -m "WIP"             # Guardar cambios como WIP
+    stash-all = stash push -m "All changes" -u  # Guardar todos los cambios, incluyendo sin seguimiento
+    stash-show = stash show -p                  # Mostrar diferencias del stash más reciente
+    stash-apply = stash apply                   # Aplicar stash sin eliminarlo
+    stash-clear = stash clear                   # Eliminar todos los stashes
+    stash-drop = stash drop                     # Eliminar un stash específico
+
+    # Remoto
+    remotes = remote -v                         # Mostrar URLs de los remotos
+    publish = push                              # Enviar cambios al repositorio remoto
+    get = pull                                  # Obtener cambios del repositorio remoto
+    sync = pull --rebase                        # Sincronizar usando rebase
