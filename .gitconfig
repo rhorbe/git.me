@@ -17,6 +17,7 @@
     branches = branch -a                        # Listar ramas locales y remotas
 
     # Stage y Unstage
+    stage = add                                 # Agregar archivos al área de staging
     stage-all = add .                           # Agregar todos los archivos al área de staging
     unstage = restore --staged                  # Quitar archivo del área de staging
     unstage-all = restore --staged .            # Quitar todos los archivos del área de staging
