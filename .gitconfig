@@ -10,11 +10,11 @@
     # Ramas
     create = checkout -b                        # Crear y cambiar a una nueva rama
     switch = checkout                           # Cambiar de rama
-    go = checkout                               # Atajo alternativo para cambiar de rama
     rename = branch -m                          # Renombrar la rama actual
     delete = branch -d                          # Eliminar una rama local
     delete-force = branch -D                    # Forzar eliminación de una rama local
     branches = branch -a                        # Listar ramas locales y remotas
+    delete-remote-branch = push origin -d       # Eliminar una rama remota
 
     # Stage y Unstage
     stage = add                                 # Agregar archivos al área de staging
