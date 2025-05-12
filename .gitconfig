@@ -25,10 +25,12 @@
     # Commits
     undo = reset --soft HEAD^                   # Deshacer el último commit manteniendo los cambios
     revert-last = revert HEAD                   # Revertir el último commit con un nuevo commit
-    save = commit -m                            # Crear commit con mensaje
     last = log -1 --pretty=format:'%C(blue)%h%Creset - %s %C(green)(%cr) %C(bold blue)<%an>%Creset'   # Mostrar el último commit
     amend = commit --amend --no-edit            # Agregar cambios al último commit sin cambiar el mensaje
     amend-message = commit --amend -m           # Cambiar el mensaje del último commit
+    save = commit -m                            # Crear commit con mensaje
+    save-all = commit -am                       # stage + save
+    urgent = !f() { git add . && git commit -m "$1" && git push; }; f # stage + save + push
 
     # Stash
     stash-save = stash push -m                  # Guardar cambios en stash con mensaje
